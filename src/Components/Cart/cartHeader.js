@@ -17,7 +17,6 @@ const CartHeader = () => {
           <th className="delete">{t('cart.table.del')}</th>
         </tr>
       </thead>
-
     </React.Fragment>
   );
 }

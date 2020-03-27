@@ -4,21 +4,31 @@ import logoutImg from '../../img/logout.svg';
 var Boolean = false;
 
 function contentDb(left, width) {
-  document.querySelector('.menu-dashboard').style.left = left;
-  for(let i = 0 ; i < document.getElementsByClassName("content-dashboard").length;i++) {
-    document.getElementsByClassName("content-dashboard")[i].style.flex = '0 0 '+width;
+  document.querySelector('.menu-dashboard').style.display = left;
+  for (let i = 0; i < document.getElementsByClassName("content-dashboard").length; i++) {
+    document.getElementsByClassName("content-dashboard")[i].style.flex = '0 0 ' + width;
     document.getElementsByClassName("content-dashboard")[i].style.maxWidth = width;
   }
-  Boolean=!Boolean
+  Boolean = !Boolean
 }
-
 function showAdmin() {
-  if (Boolean) {
-    contentDb("-22%","100%")
+  if (window.innerWidth > '768') {
+    if (Boolean) {
+      contentDb("none", "100%")
+    }
+    else {
+      contentDb("block", "80%")
+    }
   }
   else {
-    contentDb("0","80%")
+    if (Boolean) {
+      contentDb("none", "100%")
+    }
+    else {
+      contentDb("block", "100%")
+    }
   }
+
 }
 
 const logOut = () => {
@@ -27,7 +37,7 @@ const logOut = () => {
 }
 
 const TopMenu = () => {
-  return(
+  return (
     <header className="header-dashboard">
       <span className="header-dashboard__logo">
         <a href="#" onClick={(e) => {
@@ -36,7 +46,7 @@ const TopMenu = () => {
         }}>Admin</a>
       </span>
       <span className="header-dashboard__logout">
-        <img src={logoutImg} alt="logo" onClick={logOut}/>
+        <img src={logoutImg} alt="logo" onClick={logOut} />
       </span>
     </header>
   )

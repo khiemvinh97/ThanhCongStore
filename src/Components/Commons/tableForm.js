@@ -6,7 +6,7 @@ import { formatDate } from '../mixin/mixin';
 
 const TableForm = (props) => {
 
-  const {carts}= props
+  const { carts, setCheck, setOrder } = props
   const { t } = useTranslation();
 
   return (
@@ -26,7 +26,7 @@ const TableForm = (props) => {
                   let date = new Date();
                   date.setTime(e.timeOrder);
                   return (
-                    <Row element={e} date={formatDate(date)} key={i}></Row>
+                    <Row element={e} date={formatDate(date)} key={i} setCheck={setCheck} setOrder={setOrder}></Row>
                   )
                 })
               }

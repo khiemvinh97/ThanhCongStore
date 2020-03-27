@@ -1,14 +1,23 @@
+
 .cart__main {
   @extend %p-col-2;
+  &.-flex80 {
+    @include flex(70%);
+    margin-left: auto;
+  }
   .cart__table {
     @include collum(15px, 15px);
     @include flex(100%);
     overflow-x: auto;
+    &.-model {
+      max-height: 324px;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
       border-spacing: 0;
       table-layout: fixed;
+
       tr {
         @extend %p-col-2;
         th {

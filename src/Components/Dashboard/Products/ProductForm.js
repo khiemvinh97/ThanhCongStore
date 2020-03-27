@@ -9,7 +9,7 @@ import { getProductData } from '../../../action/action';
 const urlUpload = 'http://localhost:2019/uploadfile';
 
 const ProductForm = () => {
-  const categories = ["hammer","drill","saw"]
+  const categories = ["drill", "saw", "other"]
   const product = useSelector(state => state.products)
   const [Product, setProduct] = useState(product || Object)
   const [imgProduct, setImgProduct] = useState(undefined)
@@ -19,8 +19,8 @@ const ProductForm = () => {
 
   useEffect(() => {
     setProduct(product)
-    if(product.length != []) {      
-      setImgProduct(process.env.PUBLIC_URL +"../"+ product.image)
+    if (product.length != []) {
+      setImgProduct(process.env.PUBLIC_URL + "../" + product.image)
       setBool(false)
     }
   }, [product])
@@ -32,8 +32,8 @@ const ProductForm = () => {
   }
 
   const handleConfirm = async () => {
-    if(Bool) {
-      if (!Product.name || !Product.price || !Product.category ) {
+    if (Bool) {
+      if (!Product.name || !Product.price || !Product.category) {
         alert(t('register.warning.fill'))
       }
       else {
@@ -41,38 +41,44 @@ const ProductForm = () => {
         Product.countRate = 0
         Product.bought = 0
         Product.timeActive = 0
+        Product.price = parseInt(Product.price)
         Product.addNewDate = new Date().getTime();
-        if(document.getElementById("file-upload").files[0] == undefined) {
+        if (document.getElementById("file-upload").files[0] == undefined) {
           Product.image = "image/default.jpg"
         }
         setProduct(Product)
         await addNew(Product)
       }
-    }else {
-      if (!Product.name || !Product.price || !Product.bought || !Product.category ) {
+    } else {
+      if (!Product.name || !Product.price === "" || !Product.bought === "" || !Product.category) {
         alert(t('register.warning.fill'))
       }
+      else if (!checkPhone(Product.price)) {
+        alert(t('dashboard.warning.4'))
+      }
       else {
+        Product.price = parseInt(Product.price)
+        setProduct(Product)
         await update(Product)
       }
     }
   }
 
-  const upload = () => {
+  const upload = async () => {
     const myFileInputs = document.getElementById("file-upload")
 
     const formData = new FormData()
     formData.append('myFile', myFileInputs.files[0])
 
-    fetch(urlUpload, {
+    await fetch(urlUpload, {
       method: 'POST',
       body: formData
     })
       .then(res => res.json())
       .then(data => {
-        const imgName = "image/"+data.filename
+        const imgName = "image/" + data.filename
         const newDate = new Date()
-        setProduct({...Product, image: imgName, addNewDate: newDate.getTime()})
+        setProduct({ ...Product, image: imgName, addNewDate: newDate.getTime() })
       })
   }
 
@@ -97,7 +103,7 @@ const ProductForm = () => {
     let imageField = document.getElementById("image-field");
 
     reader.onload = () => {
-      if(reader.readyState === 2) {
+      if (reader.readyState === 2) {
         imageField.src = reader.result;
       }
     }
@@ -124,7 +130,7 @@ const ProductForm = () => {
         <div className="content-dashboard-profile-left -products">
           <div className="content-dashboard-profile-left__img"><img src={imgProduct || defaultImg} alt="a" id="image-field" /></div>
           <div className="content-dashboard-profile-left__upload">
-            <input id="file-upload" type="file" onChange={previewImage} disabled/>
+            <input id="file-upload" type="file" onChange={previewImage} disabled />
             <button id="upload-btn" disabled>{t('dashboard.products.8')}</button>
           </div>
         </div>
@@ -146,7 +152,7 @@ const ProductForm = () => {
               <div className="bar"></div>
             </div>
             {Bool ? "" : <div className="input-container"><input type="text" required="required"
-              value={Product.bought || 0} name="bought" onChange={handleChange} /><label
+              value={Product.bought || 0} name="bought" /><label
               >{t('dashboard.products.6')}</label>
               <div className="bar"></div>
             </div>}
@@ -155,7 +161,7 @@ const ProductForm = () => {
             </div>
           </div>
           <hr />
-          <div className="content-dashboard-profile-right__bottom" onClick={handleConfirm}><button id="dis__button" disabled >{ Bool ? t('dashboard.products.9') : t('dashboard.form.10') }</button></div>
+          <div className="content-dashboard-profile-right__bottom" onClick={handleConfirm}><button id="dis__button" disabled >{Bool ? t('dashboard.products.9') : t('dashboard.form.10')}</button></div>
         </div>
       </div>
     </React.Fragment>

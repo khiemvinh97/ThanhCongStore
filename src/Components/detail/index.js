@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BreadCrum, ListTheme, ListImg } from '../mixin/mixin'
-import * as img__Arr from '../../img/index'
 import DetailPro from './detail__pro'
 import Tag from './tag'
-import { Tittle_part, Togle } from '../mixin/mixin'
+import { TittlePart, Togle } from '../mixin/mixin'
 import { list_item, list_img } from '../../database/datatext'
-import { useSelector } from 'react-redux';
-import { getProduct ,getData } from '../../database/db'
+import { getProduct, getData } from '../../database/db'
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import SameItem from './SameItem'
@@ -32,13 +30,10 @@ const Detail = (props) => {
       }
       GetData()
     }
-
     GetProduct()
-
-  }, [dispatch])
+  }, [dispatch, id])
 
   const sameProduct = (items, pro) => {
-    console.log(pro.category)
     return (items.filter((item) => pro.category === item.category && pro.id !== item.id)).slice(0, 3)
   }
 
@@ -58,7 +53,7 @@ const Detail = (props) => {
                 <Tag id={id} />
                 <div className="product__same">
                   <div className="same__title">
-                    <Tittle_part text={t('common.same')} />
+                    <TittlePart text={t('common.same')} />
                     <Togle></Togle>
                     {Bool ? <SameItem items={same} /> : <div></div>}
                   </div>
