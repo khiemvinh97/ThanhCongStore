@@ -239,6 +239,20 @@
       "4": "Top User",
       "5": "Statistical",
       "6": "Product category"
+    },
+    "products": {
+      "1": "ID",
+      "2": "Name",
+      "3": "Price",
+      "4": "Category",
+      "5": "Information of product",
+      "6": "Bought",
+      "7": "Category",
+      "8": "Upload",
+      "9": "Add New",
+      "10": "Add Product",
+      "11": "Fill information your new product",
+      "12": "Thêm mới sản phẩm thành công !!!"
     }
   },
   "error": {

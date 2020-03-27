@@ -4,6 +4,7 @@ import AdminForm from './AdminForm';
 import ContentUsers from './Users/ContentUsers';
 import ContentCarts from './Carts/ContentCarts';
 import Dashboard from './Dashboard__page/index';
+import ContentProducts from './Products/ContentProducts';
 
 const RoutersAdmin = () => {
   return (
@@ -13,7 +14,7 @@ const RoutersAdmin = () => {
         <Route path="/admin/account" component={AdminForm} />
         <Route path="/admin/carts" component={ContentCarts} />
         <Route path="/admin/dashboard" component={Dashboard} />
-
+        <Route path="/admin/products" component={ContentProducts} />
       </Switch>
     </React.Fragment>
   )

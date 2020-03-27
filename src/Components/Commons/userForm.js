@@ -18,22 +18,22 @@ const UserForm = (props) => {
         </div>
         <hr />
         <div className="modal-box-content-form-right__content">
-          <div className="input-container"><input type="text" required="required" value={user.name} name="name" onChange={handleChange} /><label >Name</label>
+          <div className="input-container"><input type="text" required="required" value={user.name} name="name" onChange={handleChange} /><label >{t('dashboard.form.4')}</label>
             <div className="bar"></div>
           </div>
-          <div className="input-container"><input type="text" required="required" value={user.phone} name="phone" onChange={handleChange} /><label >Phone Number</label>
+          <div className="input-container"><input type="text" required="required" value={user.phone} name="phone" onChange={handleChange} /><label >{t('dashboard.form.5')}</label>
             <div className="bar"></div>
           </div>
-          <div className="input-container"><input type="text" required="required" value={user.mail} name="mail" onChange={handleChange} /><label >Email</label>
+          <div className="input-container"><input type="text" required="required" value={user.mail} name="mail" onChange={handleChange} /><label >{t('dashboard.form.6')}</label>
             <div className="bar"></div>
           </div>
-          <div className="input-container"><input type="text" required="required" value={user.addrres} name="addrres" onChange={handleChange} /><label >Address</label>
+          <div className="input-container"><input type="text" required="required" value={user.addrres} name="addrres" onChange={handleChange} /><label >{t('dashboard.form.7')}</label>
             <div className="bar"></div>
           </div>
-          <div className="input-container"><input type="password" required="required" value={user.password} name="password" onChange={handleChange} /><label >Password</label>
+          <div className="input-container"><input type="password" required="required" value={user.password} name="password" onChange={handleChange} /><label >{t('dashboard.form.8')}</label>
             <div className="bar"></div>
           </div>
-          <div className="input-container"><input type="password" required="required" value={confirm} name="confirm" onChange={(e) => setConfirm(e.target.value)} /><label >Confirm Password</label>
+          <div className="input-container"><input type="password" required="required" value={confirm} name="confirm" onChange={(e) => setConfirm(e.target.value)} /><label >{t('dashboard.form.9')}</label>
             <div className="bar"></div>
           </div>
           <div className="input-container"><input type="text" required="required"

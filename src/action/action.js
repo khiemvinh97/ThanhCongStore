@@ -91,3 +91,10 @@ export const getCate = (cate) => {
     cate
   }
 }
+
+export const getProductData = (product) => {
+  return {
+    type: types.GET__PRODUCT__DATA,
+    products: product
+  }
+}

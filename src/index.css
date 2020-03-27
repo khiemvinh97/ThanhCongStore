@@ -3519,6 +3519,22 @@ footer .bonus__foot .bonus__text ul li a {
   background-color: green;
   animation: zoomDeli 1s ease infinite;
 }
+.content-dashboard .add-btn {
+  margin-left: 70px;
+  margin-top: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3f51b5;
+  text-align: center;
+  cursor: pointer;
+}
+.content-dashboard .add-btn i {
+  font-size: 25px;
+  margin-top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
 .content-dashboard-profile {
   width: 90%;
   height: 500px;
@@ -3534,6 +3550,10 @@ footer .bonus__foot .bonus__text ul li a {
   display: flex;
   border-radius: 8px;
   padding-top: 30px;
+}
+.content-dashboard-profile-left.-products {
+  height: 400px;
+  flex-direction: column;
 }
 .content-dashboard-profile-left__infor {
   margin-left: 30px;
@@ -3553,6 +3573,52 @@ footer .bonus__foot .bonus__text ul li a {
   width: 100%;
   height: 100%;
 }
+.content-dashboard-profile-left__img {
+  width: 80%;
+  height: 300px;
+  margin: 0 auto;
+}
+.content-dashboard-profile-left__img img {
+  width: 100%;
+  height: 100%;
+}
+.content-dashboard-profile-left__upload {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+}
+.content-dashboard-profile-left__upload input[type=file] {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 55px;
+  opacity: 0;
+  cursor: pointer;
+}
+.content-dashboard-profile-left__upload button {
+  outline: none;
+  background-color: #3f51b5;
+  border: 1px solid #3f51b5;
+  padding: 7px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+  transition: 0.4s;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  z-index: 0;
+}
+.content-dashboard-profile-left__upload button:disabled {
+  opacity: 0.5;
+}
 .content-dashboard-profile-right {
   width: 60%;
   height: auto;
@@ -3561,6 +3627,9 @@ footer .bonus__foot .bonus__text ul li a {
   border-radius: 8px;
   padding-top: 30px;
   margin-left: auto;
+}
+.content-dashboard-profile-right.-products {
+  height: 350px;
 }
 .content-dashboard-profile-right hr {
   background: #c0bdbd;

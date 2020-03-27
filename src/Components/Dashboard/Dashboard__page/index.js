@@ -64,7 +64,7 @@ const Dashboard = () => {
             </div>
             <div className="row">
               {switchPage ? <ProductChart items={pro.sort((a, b) => b.bought - a.bought).slice(0, 5)} tit={t('dashboard.dash.1')} /> :
-                <UserChart items={us.sort((a, b) => b.sumPro - a.sumPro).slice(0, 5)} tit={t('dashboard.dash.2')} />}
+                <UserChart items={us.sort((a, b) => b.sumPro - a.sumPro).slice(0, 5).filter((item) => item.id !== 1)} tit={t('dashboard.dash.2')} />}
             </div>
           </div>
           <div className="row">

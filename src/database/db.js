@@ -75,6 +75,12 @@ export const deleteUser = (user) => {
     .catch(error => window.location.pathname = ('/error'))
 }
 
+export const deleteProduct = (product) => {
+  return axios.delete(`${url}/products/${product.id}`)
+    .then(res => {})
+    .catch(error => window.location.pathname = ('/error'))
+}
+
 export const getAdmin = () => {
   return axios.get(`${url}/user/1`)
     .then(res => {
@@ -96,5 +102,11 @@ export const updateCart = (item) => {
     .then(res => {
       return res.data
     })
+    .catch(error => window.location.pathname = ('/error'))
+}
+
+export const addNewProduct = (data) => {
+  return axios.post(`${url}/products`, data)
+    .then(res => {})
     .catch(error => window.location.pathname = ('/error'))
 }
