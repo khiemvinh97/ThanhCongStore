@@ -37,7 +37,7 @@ const MainMenu = (props) => {
             <div className="menu__list">
               <div className="menu__ul">
                 <ul>
-                  <li><a href="#">{t('header.menu.1')}</a></li>
+                  <li><a href="#"><Link to="/">{t('header.menu.1')}</Link></a></li>
                   <li><a href="#">{t('header.menu.2')}</a></li>
                   <li><Link to="/list">{t('header.menu.3')}</Link></li>
                   <li><a href="#">{t('header.menu.4')}</a></li>
